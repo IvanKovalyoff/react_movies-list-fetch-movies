@@ -7,16 +7,11 @@ type Props = {
 };
 
 export const MovieCard: React.FC<Props> = ({ movie }) => {
-  const poster =
-    movie.imgUrl && movie.imgUrl !== 'N/A'
-      ? movie.imgUrl
-      : 'https://via.placeholder.com/360x270.png?text=no%20preview';
-
   return (
     <div className="card" data-cy="movieCard">
       <div className="card-image">
         <figure className="image is-4by3">
-          <img data-cy="moviePoster" src={poster} alt={movie.title} />
+          <img data-cy="moviePoster" src={movie.imgUrl} alt={movie.title} />
         </figure>
       </div>
 
@@ -33,6 +28,7 @@ export const MovieCard: React.FC<Props> = ({ movie }) => {
             </p>
           </div>
         </div>
+
         <div className="content" data-cy="movieDescription">
           {movie.description} <br />
           <a href={movie.imdbUrl} data-cy="movieURL">
